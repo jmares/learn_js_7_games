@@ -6,4 +6,4 @@ Course: [Learn Javascript by Building 7 Games](https://www.freecodecamp.org/news
 
 ## Rock Paper Scissors
 
-Tutorial: 05/03/2022 - 
+Tutorial: 05/03/2022 - 08/03/2022

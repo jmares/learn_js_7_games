@@ -1,16 +1,18 @@
+/**
+ * Declarations
+ */
 const computerChoiceDisplay = document.getElementById('computer-choice');
 const userChoiceDisplay = document.getElementById('user-choice');
 const resultDisplay = document.getElementById('result');
+
 const possibleChoices = document.querySelectorAll('button');
+
 let userChoice
 
-possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
-    userChoice = e.target.id;
-    userChoiceDisplay.innerHTML = userChoice;
-    generateComputerChoice()
-    getResult()
-}));
 
+/**
+ * Generates computer's choice and displays result
+ */
 function generateComputerChoice() {
     const randomNumber = Math.floor(Math.random() * possibleChoices.length);
     if (randomNumber === 0) {
@@ -25,6 +27,10 @@ function generateComputerChoice() {
     computerChoiceDisplay.innerHTML = computerChoice;
 }
 
+
+/**
+ * Compares user's and computer's choice and displays result.
+ */
 function getResult() {
     if (computerChoice === userChoice) {
         result = "It's a draw!"
@@ -49,3 +55,15 @@ function getResult() {
     }
     resultDisplay.innerHTML = result;
 }
+
+
+/**
+ * Main code
+ */
+possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
+    userChoice = e.target.id;
+    userChoiceDisplay.innerHTML = userChoice;
+    generateComputerChoice()
+    getResult()
+}));
+

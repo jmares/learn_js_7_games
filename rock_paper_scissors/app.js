@@ -32,26 +32,25 @@ function generateComputerChoice() {
  * Compares user's and computer's choice and displays result.
  */
 function getResult() {
-    if (computerChoice === userChoice) {
-        result = "It's a draw!"
-    }
-    if (computerChoice === 'rock' && userChoice === 'paper') {
-        result = "You win!"
-    }
-    if (computerChoice === 'rock' && userChoice === 'scissors') {
-        result = "You lost!"
-    }
-    if (computerChoice === 'paper' && userChoice === 'scissors') {
-        result = "You win!"
-    }
-    if (computerChoice === 'paper' && userChoice === 'rock') {
-        result = "You lost!"
-    }
-    if (computerChoice === 'scissors' && userChoice === 'rock') {
-        result = "You win!"
-    }
-    if (computerChoice === 'scissors' && userChoice === 'paper') {
-        result = "You lost!"
+    let result = null;
+    switch (computerChoice + userChoice) {
+        case "rockrock":
+        case "paperpaper":
+        case "scissorsscissors":
+            result = "It's a draw!";
+            break;
+        case "rockpaper":
+        case "paperscissors":
+        case "scissorsrock":
+            result = "You win!"
+            break;
+        case "paperrock":
+        case "scissorspaper":
+        case "rockscissors":
+            result = "You lose!"
+            break;
+        default:
+            result = "Error!"
     }
     resultDisplay.innerHTML = result;
 }

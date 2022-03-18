@@ -10,3 +10,8 @@ Course: [Learn Javascript by Building 7 Games](https://www.freecodecamp.org/news
 - 15/03/2022: Added some style and structure to the HTML page
 - 15/03/2022: Readability javascript code
 - 15/03/2022: Replacing ifs with a switch in getResult()
+
+## Memory Game
+
+- Tutorial: 18/03/2022
+

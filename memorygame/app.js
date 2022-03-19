@@ -1,3 +1,7 @@
+/**
+ * Declarations
+ */
+
 const cardArray = [
     {
         name: 'fries',
@@ -49,7 +53,6 @@ const cardArray = [
     },
 ];
 
-cardArray.sort(() => 0.5 - Math.random())
 
 const gridDisplay = document.querySelector('#grid');
 const resultDisplay = document.querySelector('#result');
@@ -58,6 +61,23 @@ let cardsChosenIds = [];
 const cardsWon = []
 
 
+/**
+ * Flips the selected card
+ */
+ function flipCard() {
+    const cardId = this.getAttribute('data-id');
+    cardsChosen.push(cardArray[cardId].name)
+    cardsChosenIds.push(cardId)
+    this.setAttribute('src', cardArray[cardId].img)
+    if (cardsChosen.length === 2) {
+        setTimeout(checkMatch, 500);
+    }
+}
+
+
+/**
+ * Displays the board with blank cards
+ */
 function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
         const card = document.createElement('img');
@@ -68,8 +88,10 @@ function createBoard() {
     }
 }
 
-createBoard()
 
+/**
+ * Verifies whether the last 2 selected cards are a match
+ */
 function checkMatch() {
     console.log('check for match')
     const cards = document.querySelectorAll('#grid img');
@@ -99,12 +121,11 @@ function checkMatch() {
     }
 }
 
-function flipCard() {
-    const cardId = this.getAttribute('data-id');
-    cardsChosen.push(cardArray[cardId].name)
-    cardsChosenIds.push(cardId)
-    this.setAttribute('src', cardArray[cardId].img)
-    if (cardsChosen.length === 2) {
-        setTimeout(checkMatch, 500);
-    }
-}
+
+/**
+ * Main code
+ */
+
+cardArray.sort(() => 0.5 - Math.random())
+createBoard()
+

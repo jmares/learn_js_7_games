@@ -14,4 +14,5 @@ Course: [Learn Javascript by Building 7 Games](https://www.freecodecamp.org/news
 ## Memory Game
 
 - Tutorial: 18/03/2022
+- 19/03/2022: making code more readable
 

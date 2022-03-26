@@ -16,3 +16,6 @@ Course: [Learn Javascript by Building 7 Games](https://www.freecodecamp.org/news
 - Tutorial: 18/03/2022
 - 19/03/2022: making code more readable
 
+## Whac-a-mole
+
+- Tutorial: 26/03/2022

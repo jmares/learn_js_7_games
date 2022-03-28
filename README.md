@@ -25,3 +25,8 @@ Course: [Learn Javascript by Building 7 Games](https://www.freecodecamp.org/news
     - put score and time-left inside h2 with title
     - layout h2 and span
     - remove borders squares
+- 28/03/2022: modified javascript
+    - readability
+    - extra function `makeSquaresClickable()`
+    - replaced background colors with images
+    - set interval to 700 ms instead of 1000 ms

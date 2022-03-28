@@ -23,10 +23,11 @@ span {
 .square {
     height: 200px;
     width: 200px;
+    background-image: url('cyber2.jpg');
 }
 
 .mole {
-    background-color: blue;
-    /* background-image: url("mole.jpg"); */
+    /* background-color: blue; */
+    background-image: url("smiley.jpg");
     /* background-size: cover; */
 }

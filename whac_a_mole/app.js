@@ -1,3 +1,7 @@
+/**
+ * Declarations
+ */
+
 const squares = document.querySelectorAll(".square");
 const mole = document.querySelector(".mole");
 const timeLeft = document.querySelector("#time-left");
@@ -8,7 +12,11 @@ let hitPosition = null
 let currentTime = 60
 let timerId = null;
 
-function randomSquare() {
+
+/**
+ * Removes mole class from all squares and adds it to a random square
+ */
+ function randomSquare() {
     squares.forEach(square => {
         square.classList.remove("mole");
     })
@@ -17,24 +25,19 @@ function randomSquare() {
     hitPosition = randomSquare.id;
 }
 
-squares.forEach(square => {
-    square.addEventListener('mousedown', () => {
-        console.log(square.id + "  /  " + hitPosition)
-        if (square.id == hitPosition) {
-            result++;
-            score.textContent = result;
-            hitPosition = null;
-        }
-    })
-})
 
-function moveMole() {
+/**
+ * Moves mole to another square
+ */
+ function moveMole() {
     timerId = setInterval(randomSquare, 1000);
 }
 
-moveMole();
 
-function countDown() {
+/**
+ * Count down for game time
+ */
+ function countDown() {
     currentTime--;
     timeLeft.textContent = currentTime;
     if (currentTime == 0) {
@@ -44,4 +47,30 @@ function countDown() {
     }
 }
 
-let countDownTimerId = setInterval(countDown, 1000);
+
+/**
+ * Adds EventListeners to the squares
+ */
+function makeSquaresClickable() {
+    squares.forEach(square => {
+        square.addEventListener('mousedown', () => {
+            console.log(square.id + "  /  " + hitPosition)
+            if (square.id == hitPosition) {
+                result++;
+                score.textContent = result;
+                hitPosition = null;
+            }
+        })
+    })    
+}
+
+
+/**
+ * Main code
+ */
+
+makeSquaresClickable()
+
+moveMole();
+
+let countDownTimerId = setInterval(countDown, 700);

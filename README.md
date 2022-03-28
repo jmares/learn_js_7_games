@@ -19,3 +19,9 @@ Course: [Learn Javascript by Building 7 Games](https://www.freecodecamp.org/news
 ## Whac-a-mole
 
 - Tutorial: 26/03/2022
+- 28/03/2022: Modified style
+    - center grid
+    - add border to grid
+    - put score and time-left inside h2 with title
+    - layout h2 and span
+    - remove borders squares

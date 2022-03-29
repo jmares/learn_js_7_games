@@ -30,3 +30,8 @@ Course: [Learn Javascript by Building 7 Games](https://www.freecodecamp.org/news
     - extra function `makeSquaresClickable()`
     - replaced background colors with images
     - set interval to 700 ms instead of 1000 ms
+
+## Breakout
+
+- Tutorial: 29/03/2022
+

@@ -33,5 +33,5 @@ Course: [Learn Javascript by Building 7 Games](https://www.freecodecamp.org/news
 
 ## Breakout
 
-- Tutorial: 29/03/2022
-
+- Tutorial: 29/03/2022 & 05/04/2022
+- Bug in collisions (tutorial code)

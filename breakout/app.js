@@ -1,5 +1,10 @@
+/**
+ * Declarations
+ */
 const grid = document.querySelector('.grid')
 const scoreDisplay = document.querySelector('#score');
+const startButton = document.getElementById('startbtn');
+const stopButton = document.getElementById('stopbtn');
 const blockWidth = 100;
 const blockHeight = 20;
 const boardWidth = 560;
@@ -17,9 +22,11 @@ let yDirection = 2
 let xDirection = 2
 let score = 0
 
-// create a block
 
-class Block {
+/**
+ * Create Block class
+ */
+ class Block {
     constructor(xAxis, yAxis) {
         this.bottomLeft = [xAxis, yAxis];
         this.bottomRight = [xAxis + blockWidth, yAxis];
@@ -47,7 +54,10 @@ const blocks = [
     new Block(450, 210),
 ];
 
-// draw all blocks
+
+/**
+ * Draw all the blocks
+ */
 function addBlocks() {
     for (let i = 0; i < blocks.length; i++) {
         const block = document.createElement('div');
@@ -58,31 +68,29 @@ function addBlocks() {
     }
 }
 
-addBlocks()
 
-// add user
-const user = document.createElement('div');
-user.classList.add('user');
-drawUser();
-grid.appendChild(user);
-
-// draw user
-
+/**
+* Draw user
+*/ 
 function drawUser() {
     user.style.left = currentPosition[0] + 'px';
     user.style.bottom = currentPosition[1] + 'px';    
 }
 
-// draw ball
 
+/**
+ * Draw the ball
+ */
 function drawBall() {
     ball.style.left = ballCurrentPosition[0] + 'px';
     ball.style.bottom = ballCurrentPosition[1] + 'px';
-    
+    console.log('ball (x,y): (' + ballCurrentPosition[0] + ', ' + ballCurrentPosition[1] + ')')
 }
 
-// move user
 
+/**
+ * Move the user
+ */
 function moveUser(e) {
     //console.log(e);
     switch(e.key) {
@@ -101,17 +109,10 @@ function moveUser(e) {
     }
 }
 
-document.addEventListener('keydown', moveUser);
 
-// add ball
-
-const ball = document.createElement('div');
-ball.classList.add('ball');
-drawBall()
-grid.appendChild(ball);
-
-// move ball
-
+/**
+ * Move the ball
+ */
 function moveBall() {
     ballCurrentPosition[0] += xDirection
     ballCurrentPosition[1] += yDirection
@@ -119,10 +120,34 @@ function moveBall() {
     check4Collisions()
 }
 
-timerId = setInterval(moveBall, 30)
 
-// check for collisions
+/**
+ * Start the game
+ */
+ function startGame() {
+    timerId = setInterval(moveBall, 30)
+    startButton.disabled = true
+    stopButton.disabled = false
+    document.addEventListener('keydown', moveUser);
+    user.focus()
+}
 
+
+/**
+ * End/Pauze the game
+ */
+ function stopGame() {
+    clearInterval(timerId)
+    //document.removeEventListener('keydown', moveUser)
+    startButton.disabled = false
+    stopButton.disabled = true
+}
+
+
+
+/**
+ * Check for collisions
+ */
 function check4Collisions() {
     // check for block collisions
     for (let i = 0; i < blocks.length; i++)
@@ -135,7 +160,7 @@ function check4Collisions() {
             allBlocks[i].classList.remove('block')
             blocks.splice(i, 1)
             changeDirection()
-            console.log(blocks.length)
+            console.log('block collision')
             score++;
             scoreDisplay.innerHTML = score
 
@@ -155,6 +180,7 @@ function check4Collisions() {
         ballCurrentPosition[1] >= (boardHeight - ballDiameter) ||
         ballCurrentPosition[0] <= 0
         ) {
+        console.log('wall collision')
         changeDirection()
     }
 
@@ -176,7 +202,9 @@ function check4Collisions() {
 }
 
 
-// change direction
+/**
+ * Change direction
+ */
 function changeDirection() {
     if (xDirection == 2 && yDirection == 2) {
         yDirection = -2
@@ -192,6 +220,31 @@ function changeDirection() {
     }
     if (xDirection == -2 && yDirection == 2) {
         xDirection = 2
+        // yDirection = -2
         return
     }
 }
+
+
+/**
+ * Main code
+ */
+
+addBlocks()
+
+ // add user
+const user = document.createElement('div');
+user.classList.add('user');
+drawUser();
+grid.appendChild(user);
+
+// add ball
+const ball = document.createElement('div');
+ball.classList.add('ball');
+drawBall()
+grid.appendChild(ball);
+
+//startButton.addEventListener('click', startGame)
+//stopButton.addEventListener('click', stopGame)
+
+

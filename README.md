@@ -35,3 +35,5 @@ Course: [Learn Javascript by Building 7 Games](https://www.freecodecamp.org/news
 
 - Tutorial: 29/03/2022 & 05/04/2022
 - Bug in collisions (tutorial code)
+- 06/04/2022: when adding a start and stop button, after clicking the start button the left and right arrows to controle the user no longer work, unless you click on the page one more time (**unsolved bug**)
+- 06/04/2022: in the tutorial there are for scenarios changing direction after a collision, there are more, which explains some weird behaviour (**unsolved bug**)

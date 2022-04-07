@@ -36,7 +36,7 @@ Course: [Learn Javascript by Building 7 Games](https://www.freecodecamp.org/news
 - Tutorial: 29/03/2022 & 05/04/2022
 - Bug in collisions (tutorial code)
 - 06/04/2022: when adding a start and stop button, after clicking the start button the left and right arrows to controle the user no longer work, unless you click on the page one more time (**unsolved bug**)
-- 06/04/2022: in the tutorial there are for scenarios changing direction after a collision, there are more, which explains some weird behaviour (**unsolved bug**)
+- 06/04/2022: in the tutorial there are scenarios for changing direction after a collision, they're incomplete, which explains some weird behaviour (**unsolved bug**)
 - 07/04/2022: fix wall collisions
 
 The code from the tutorial for a change in direction after a collision is detected:
@@ -90,9 +90,9 @@ What should happen when the ball moves to the right and down, and hits the botto
 9. xDirection becomes positive
 10. The ball moves to the right and up (this should have been step 4)
 
-So, instead of bouncing up, the ball makes the little dance. This can happen with every collision (up and down, left and right, and with any obstacle).
+So, instead of bouncing up, the ball makes a little dance. This can happen with every collision (up and down, left and right, and with any obstacle).
 
-To fix this for a wall collision is simple:
+The fix for a wall collision is simple:
 
 ```javascript
 // check for collision with left or right wall
